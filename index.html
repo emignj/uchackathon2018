@@ -8,6 +8,7 @@
 </head>
 <body>
   <h1>Never Expire<h1>
+    <div>
       <form name="newitem" id="newitem">
         Item Name:<br>
         <input type="text" name="itemname"><br>
@@ -16,11 +17,10 @@
           <input type="button" onclick="SaveForm(this.form)"
           value="Submit">
     </form>
-
-      <script src="myScript.js"></script>
+   </div>
 
   <div>
-    <table class="center">
+    <table class="center", id="itemList">
       <tr>
         <th>Name</th>
         <th>Date Added</th>
@@ -33,5 +33,6 @@
       </tr>
     </table>
   </div>
+  <script src="myScript.js"></script>
 </body>
 </html>
