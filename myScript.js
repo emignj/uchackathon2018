@@ -52,13 +52,16 @@ function expirationTracker() {
     var isExpireSoon = false
     var itemExpireSoon = ""
     for (var i = 1; i < table.rows.length; i++) {
-        if (table.rows[i].cells[3].textContent <= 4) {
+        if (table.rows[i].cells[3].textContent <= 4 && table.rows[i].cells[3].textContent > 0) {
             table.rows[i].style.backgroundColor = "#ffed70"
             isExpireSoon = true
             itemExpireSoon = table.rows[i].cells[0].textContent
         }
         if (table.rows[i].cells[3].textContent <= 1) {
             table.rows[i].style.backgroundColor = "#ee6a50"
+        }
+        if (table.rows[i].cells[3].textContent <= 0) {
+            table.rows[i].style.backgroundColor = "#cecece"
         }
     }
 
@@ -79,6 +82,21 @@ function expirationTracker() {
     }
 
 
+}
+
+function expirationColor() {
+  var table = document.querySelector("#itemList")
+  for (var i = 1; i < table.rows.length; i++) {
+      if (table.rows[i].cells[3].textContent <= 4) {
+          table.rows[i].style.backgroundColor = "#ffed70"
+      }
+      if (table.rows[i].cells[3].textContent <= 1) {
+          table.rows[i].style.backgroundColor = "#ee6a50"
+      }
+      if (table.rows[i].cells[3].textContent <= 0) {
+          table.rows[i].style.backgroundColor = "#cecece"
+      }
+  }
 }
 
 buttonRefresh.onclick = function() {
@@ -108,6 +126,6 @@ buttonRefresh.onclick = function() {
     tableRow.appendChild(daysLeft);
     listBody.appendChild(tableRow);
   }
-  expirationTracker();
+  expirationColor()
 
 }
