@@ -29,7 +29,6 @@ buttonAdd.onclick = function() {
 
     tableRow.appendChild(nameAdded);
     tableRow.appendChild(dateAdded);
-<<<<<<< HEAD
     tableRow.appendChild(expirationAdded);
     tableRow.appendChild(daysLeft);
     listBody.appendChild(tableRow);
@@ -42,16 +41,5 @@ Date.daysBetween = function (date1, date2) {
     var date2_ms = date2.getTime();
     var difference_ms = date2_ms - date1_ms;
     return Math.round((difference_ms/one_day) + 1);
-=======
     listBody.appendChild(tableRow)
 }
-
-function expirationTracker() {
-    var table = document.querySelector("#itemList")
-    console.log(table.rows[1].cells[1].textContent)
-    for (var i = 0, row; row = table.row[i]; i++) {
-        console.log(row.cell[1])
-    }
->>>>>>> bdf99cc755fd8fd9579b407e2f21869bb51dec13
-}
-
