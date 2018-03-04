@@ -64,6 +64,9 @@ function expirationTracker() {
     if (isExpireSoon) {
         var expireNotice = document.createElement('p');
         var foodbanklink = document.createElement('a')
+        if (expireNotice.parentNode) {
+            expireNotice.parentNode.removeChild(expireNotice)
+        }
         var foodbanktext = document.createTextNode("Free Store Food Bank")
         var container = document.querySelector('.container');
         expireNotice.textContent = itemExpireSoon + " is going to expire soon. Please consider donating to your local food drive: ";
