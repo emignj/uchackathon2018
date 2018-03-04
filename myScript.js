@@ -12,8 +12,9 @@ buttonAdd.onclick = function() {
     var today = new Date(Date.now());
     var expire = new Date(_itemExpiration);
     var _today = new Date(Date.now()).toLocaleString();
-    _daysLeft = Date.daysBetween(today, expire);
-    var item = {name:_itemName, expiredate:_itemExpiration, creationdate:_today, daysleft:_daysLeft};
+    var _daysLeft = Date.daysBetween(today, expire);
+    var formatted = (expire.getMonth()+1) + '/' + (expire.getDate()+1) + '/' + expire.getFullYear();
+    var item = {name:_itemName, expiredate:formatted, creationdate:_today, daysleft:_daysLeft};
     items.push(item);
     var nameAdded = document.createElement('td');
     var dateAdded = document.createElement('td');
@@ -22,7 +23,7 @@ buttonAdd.onclick = function() {
     var tableRow = document.createElement('tr');
     nameAdded.textContent = _itemName;
     dateAdded.textContent = _today;
-    expirationAdded.textContent = _itemExpiration;
+    expirationAdded.textContent = formatted;
     daysLeft.textContent = _daysLeft;
 
     var listBody = document.querySelector('#listBody');
@@ -32,7 +33,6 @@ buttonAdd.onclick = function() {
     tableRow.appendChild(expirationAdded);
     tableRow.appendChild(daysLeft);
     listBody.appendChild(tableRow);
-
 }
 
 Date.daysBetween = function (date1, date2) {
