@@ -11,16 +11,15 @@
     <div>
       <form name="newitem" id="newitem">
         Item Name:<br>
-        <input type="text" name="itemname"><br>
+        <input type="text" class="itemname"><br>
         Expiration Date:<br>
-        <input type="text" name="expiredate"><br>
-        <input type="button" onclick="SaveForm(this.form)"
-          value="Submit">
+        <input type="text" class="expiration"><br>
+        <input type="button" value="Submit" class = "addItem">
     </form>
    </div>
 
   <div>
-    <table class="center", id="itemList">
+    <table class="tableMain", id="itemList">
       <tr>
         <th>Name</th>
         <th>Date Added</th>

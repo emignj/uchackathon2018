@@ -1,28 +1,29 @@
-$(document).ready(function () {
-    'use strict';
-
-if (typeof console == "undefined") {
-    window.console = {
-        log: function () {}
-    };
-}
-
 var items = new Array();
 var table = document.getElementById("itemList")
+var buttonAdd = document.querySelector(".addItem")
 
-function SaveForm(form) {
-    var _name = form.itemname.value;
-    var _expiredate = form.expiredate.value;
+
+buttonAdd.onclick = function() {
+    var name = document.querySelector(".itemname")
+    var _itemName = name.value;
+    var expiration = document.querySelector(".expiration")
+    var _itemExpiration = expiration.value;
     var today = new Date(Date.now()).toLocaleString();
-    var item = {name:_name, expiredate:_expiredate, creationdate:today};
+    var item = {name:_itemName, expiredate:_itemExpiration, creationdate:today};
     items.push(item);
-    var row = table.insertRow(0);
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-    var cell3 = row.insertCell(2);
-    cell1.innerHTML = _name;
-    cell2.innerHTML = _expiredate;
-    cell3.innerHTML = today;
-}
+    var nameAdded = document.createElement('td');
+    var expirationAdded= document.createElement('td');
+    var dateAdded = document.createElement('td');
+    var tableRow = document.createElement('tr')
+    nameAdded.textContent = _itemName;
+    expirationAdded.textContent = _itemExpiration;
+    dateAdded.textContent = today;
 
-});
+    var tableMain = document.querySelector('.tableMain');
+
+    tableRow.appendChild(nameAdded);
+    tableRow.appendChild(expirationAdded);
+    tableRow.appendChild(dateAdded);
+    tableMain.appendChild(tableRow)
+
+}
