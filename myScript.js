@@ -1,15 +1,15 @@
 var items = new Array();
-var buttonAdd = document.querySelector("#addItem")
-
+var buttonAdd = document.querySelector("#addItem");
+var buttonRefresh = document.querySelector("#refreshItems");
 
 buttonAdd.onclick = function() {
-    var name = document.querySelector("#itemname")
-    var _itemName = name.value;
-    var expiration = document.querySelector("#expiredate")
+    var name = document.querySelector("#itemname");
+    var _itemName = name.value;;
+    var expiration = document.querySelector("#expiredate");
     var _itemExpiration = expiration.value;
     // var stringDate = moment(_itemExpiration, 'Y-M-D').format('dddd MMMM D Y')
     // alert(stringDate);
-    var today = new Date(Date.now())
+    var today = new Date(Date.now());
     var expire = new Date(_itemExpiration);
     var _today = new Date(Date.now()).toLocaleString();
     _daysLeft = Date.daysBetween(today, expire);
@@ -19,7 +19,7 @@ buttonAdd.onclick = function() {
     var dateAdded = document.createElement('td');
     var expirationAdded= document.createElement('td');
     var daysLeft = document.createElement('td');
-    var tableRow = document.createElement('tr')
+    var tableRow = document.createElement('tr');
     nameAdded.textContent = _itemName;
     dateAdded.textContent = _today;
     expirationAdded.textContent = _itemExpiration;
@@ -45,9 +45,39 @@ Date.daysBetween = function (date1, date2) {
 }
 
 function expirationTracker() {
-    var table = document.querySelector("#itemList")
+    var table = document.querySelector("#itemList");
     console.log(table.rows[1].cells[1].textContent)
     for (var i = 0, row; row = table.row[i]; i++) {
         console.log(row.cell[1])
     }
+}
+
+buttonRefresh.onclick = function() {
+  var table = document.querySelector("#itemList");
+  var rowCount = table.rows.length;
+  while(--rowCount)
+    table.deleteRow(rowCount);
+  // The following actually sorts!!
+  items.sort(function(a,b){
+    var alc = a.daysleft, blc = b.daysleft;
+    return alc > blc ? 1 : alc < blc ? -1 : 0;
+  })
+  for (var i = 0; i < items.length; i++) {
+    var nameAdded = document.createElement('td');
+    var dateAdded = document.createElement('td');
+    var expirationAdded= document.createElement('td');
+    var daysLeft = document.createElement('td');
+    var tableRow = document.createElement('tr');
+    nameAdded.textContent = items[i].name;
+    dateAdded.textContent = items[i].creationdate;
+    expirationAdded.textContent = items[i].expiredate;
+    daysLeft.textContent = items[i].daysleft;
+
+    tableRow.appendChild(nameAdded);
+    tableRow.appendChild(dateAdded);
+    tableRow.appendChild(expirationAdded);
+    tableRow.appendChild(daysLeft);
+    listBody.appendChild(tableRow);
+  }
+
 }
