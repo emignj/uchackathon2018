@@ -33,6 +33,8 @@ buttonAdd.onclick = function() {
     tableRow.appendChild(daysLeft);
     listBody.appendChild(tableRow);
 
+    expirationTracker()
+
 }
 
 Date.daysBetween = function (date1, date2) {
@@ -46,8 +48,33 @@ Date.daysBetween = function (date1, date2) {
 
 function expirationTracker() {
     var table = document.querySelector("#itemList")
-    console.log(table.rows[1].cells[1].textContent)
-    for (var i = 0, row; row = table.row[i]; i++) {
-        console.log(row.cell[1])
+    var isExpireSoon = false
+    var itemExpireSoon = ""
+    for (var i = 1; i < table.rows.length; i++) {
+        if (table.rows[i].cells[3].textContent <= 4) {
+            table.rows[i].style.backgroundColor = "#ffed70"
+            isExpireSoon = true
+            itemExpireSoon = table.rows[i].cells[0].textContent
+        }
+        if (table.rows[i].cells[3].textContent <= 1) {
+            table.rows[i].style.backgroundColor = "#ee6a50"
+        }
     }
+
+    if (isExpireSoon) {
+        var expireNotice = document.createElement('p');
+        var foodbanklink = document.createElement('a')
+        var foodbanktext = document.createTextNode("Free Store Food Bank")
+        var container = document.querySelector('.container');
+        expireNotice.textContent = itemExpireSoon + " is going to expire soon. Please consider donating to your local food drive: ";
+        foodbanklink.appendChild(foodbanktext)
+        foodbanklink.href = "https://freestorefoodbank.org"
+        expireNotice.appendChild(foodbanklink)
+        container.appendChild(expireNotice);
+
+    }
+
+
 }
+
+
