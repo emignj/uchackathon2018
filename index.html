@@ -5,36 +5,48 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="skeleton.css">
   <link rel="stylesheet" href="normalize.css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
   <meta charset="utf-8" />
 </head>
 <body>
-  <h1>Never Expire<h1>
-    <div>
-      <form name="newitem" id="newitem">
-        Item Name:<br>
-        <input type="text" name="itemname"><br>
-        Expiration Date:<br>
-        <input type="text" name="expiredate"><br>
-        <input type="button-primary" type="button" onclick="SaveForm(this.form)"
-          value="Submit">
-    </form>
-   </div>
+  <div class="container">
+    <div class="twelve columns">
+      <h1>Never Expire<h1>
+    </div>
 
-  <div>
-    <table class="center", id="itemList">
-      <tr>
-        <th>Name</th>
-        <th>Date Added</th>
-        <th>Expiration</th>
-      </tr>
-      <tr>
-        <td class="name"></td>
-        <td class="date_added"></td>
-        <td class="expiration"></td>
-      </tr>
+    <form name="newitem" id="newitem">
+      <div class="row">
+        <div class="six columns">
+          <label name="itemname">Item Name:</label>
+          <input class="u-full-width" placeholder="Item" id="itemname">
+        </div>
+        <div class="six columns">
+          <label name="expiredate">Expiration Date:</label>
+          <input class="u-full-width" placeholder="Expiration date" id="expiredate">
+        </div>
+      </div>
+    </form>
+    <input class="button-primary" type="submit" value="submit">
+
+    <table class="u-full-width" id="itemList">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Date Added</th>
+          <th>Expiration</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="name"></td>
+          <td class="date_added"></td>
+          <td class="expiration"></td>
+        </tr>
+      </tbody>
     </table>
+
+    <button class="button-primary">refresh</button>
+    <script src="myScript.js"></script>
   </div>
-  <button type="button-primary" name="refresh">Refresh</button>
-  <script src="myScript.js"></script>
 </body>
 </html>
