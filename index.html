@@ -8,12 +8,16 @@
 </head>
 <body>
   <h1>Never Expire<h1>
-  <form>
-    Item Name:<br>
-    <input type="text" name="itemname"><br>
-    Expiration Date:<br>
-    <input type="text" name="expiredate"><br>
-  </form>
+      <form name="newitem" id="newitem">
+        Item Name:<br>
+        <input type="text" name="itemname"><br>
+        Expiration Date:<br>
+        <input type="text" name="expiredate"><br>
+          <input type="button" onclick="SaveForm(this.form)"
+          value="Submit">
+    </form>
+
+      <script src="myScript.js"></script>
 
   <div>
     <table class="center">
