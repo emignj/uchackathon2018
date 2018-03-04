@@ -9,6 +9,7 @@
   <meta charset="utf-8" />
 </head>
 <body>
+  <div class="container">
     <div class="twelve columns">
       <h1>Never Expire<h1>
     </div>
@@ -25,8 +26,8 @@
         </div>
       </div>
     </form>
-    <input class="button-primary" type="submit" value="submit">
-  <div>
+    <input class="button-primary" type="submit" value="submit" id="addItem">
+    <div>
     <table class="u-full-width" id="itemList">
       <thead>
         <tr>
@@ -35,7 +36,7 @@
           <th>Expiration</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id="listBody">
         <tr>
           <td class="name"></td>
           <td class="date_added"></td>
@@ -44,8 +45,9 @@
       </tbody>
     </table>
 
-    <button class="button-primary">refresh</button>
+    <button class="button-primary">Organize</button>
     <script src="myScript.js"></script>
+    </div>
   </div>
 </body>
 </html>
