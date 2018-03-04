@@ -43,3 +43,11 @@ Date.daysBetween = function (date1, date2) {
     return Math.round((difference_ms/one_day) + 1);
     listBody.appendChild(tableRow)
 }
+
+function expirationTracker() {
+    var table = document.querySelector("#itemList")
+    console.log(table.rows[1].cells[1].textContent)
+    for (var i = 0, row; row = table.row[i]; i++) {
+        console.log(row.cell[1])
+    }
+}
