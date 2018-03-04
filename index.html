@@ -18,11 +18,11 @@
       <div class="row">
         <div class="six columns">
           <label name="itemname">Item Name:</label>
-          <input class="u-full-width" placeholder="Item" id="itemname">
+          <input type="text" class="u-full-width" placeholder="Item" id="itemname">
         </div>
         <div class="six columns">
           <label name="expiredate">Expiration Date:</label>
-          <input class="u-full-width" placeholder="Expiration date" id="expiredate">
+          <input type="date" class="u-full-width" placeholder="Expiration date" id="expiredate">
         </div>
       </div>
     </form>
@@ -34,6 +34,7 @@
           <th>Name</th>
           <th>Date Added</th>
           <th>Expiration</th>
+          <th>Days Left</th>
         </tr>
       </thead>
       <tbody id="listBody">
@@ -41,11 +42,12 @@
           <td class="name"></td>
           <td class="date_added"></td>
           <td class="expiration"></td>
+          <td class="days_left"></td>
         </tr>
       </tbody>
     </table>
 
-    <button class="button-primary">Organize</button>
+    <button class="button-primary">Refresh</button>
     <script src="myScript.js"></script>
   </div>
 </body>
