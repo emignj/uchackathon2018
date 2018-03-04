@@ -8,25 +8,30 @@
 </head>
 <body>
   <h1>Never Expire<h1>
-  <form>
-    Item Name:<br>
-    <input type="text" name="itemname"><br>
-    Expiration Date:<br>
-    <input type="text" name="expiredate"><br>
-  </form>
+      <form name="newitem" id="newitem">
+        Item Name:<br>
+        <input type="text" name="itemname"><br>
+        Expiration Date:<br>
+        <input type="text" name="expiredate"><br>
+          <input type="button" onclick="SaveForm(this.form)"
+          value="Submit">
+    </form>
 
-  <table>
-    <tr>
-      <th>Name</th>
-      <th>Date Added</th>
-      <th>Expiration</th>
-    </tr>
-    <tr>
-      <td class="name"></td>
-      <td class="date_added"></td>
-      <td class="expiration"></td>
-    </tr>
-  </table>
+      <script src="myScript.js"></script>
 
+  <div>
+    <table class="center">
+      <tr>
+        <th>Name</th>
+        <th>Date Added</th>
+        <th>Expiration</th>
+      </tr>
+      <tr>
+        <td class="name"></td>
+        <td class="date_added"></td>
+        <td class="expiration"></td>
+      </tr>
+    </table>
+  </div>
 </body>
 </html>
